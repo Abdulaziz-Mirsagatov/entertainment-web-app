@@ -1,0 +1,139 @@
+@use "_reset";
+@use "_vars" as *;
+
+.wrapper {
+  min-height: 100dvh;
+  justify-items: start;
+  align-items: start;
+  align-content: start;
+  row-gap: 2em;
+}
+
+body {
+  background-color: $secondary-dark-color;
+  color: $text-color;
+  @include font-family-light;
+}
+
+.nav {
+  background-color: $secondary-light-color;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+
+  .navigation {
+    gap: 2em;
+
+    svg {
+      fill: #5a698f;
+      transition: fill 0.3s;
+    }
+
+    svg.active {
+      fill: white;
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .avatar {
+    border: 3px solid white;
+    border-radius: 50%;
+    width: pxToRem(40);
+  }
+}
+
+.searchbox {
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+
+  .search-icon {
+    height: pxToRem(24);
+  }
+
+  .search-input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0.5em 0;
+  }
+
+  .search-input,
+  .search-input::placeholder {
+    font-size: pxToRem(16);
+  }
+}
+
+.main {
+  width: 100%;
+  padding-inline: 1em;
+  padding-bottom: 2em;
+  gap: 1em;
+}
+
+@media (min-width: 720px) {
+  .nav {
+    width: calc(100% - 3em);
+    margin-inline: auto;
+    margin-top: 1em;
+    border-radius: pxToRem(10);
+  }
+
+  .searchbox {
+    gap: 2em;
+
+    .search-icon {
+      height: pxToRem(32);
+    }
+
+    .search-input,
+    .search-input::placeholder {
+      font-size: pxToRem(24);
+    }
+  }
+
+  .main {
+    padding-inline: 1.5em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    grid-template-columns: min-content auto;
+    grid-template-rows: auto auto;
+  }
+
+  .nav {
+    grid-row: 1 / 3;
+    flex-direction: column;
+    justify-content: start;
+    gap: 5em;
+    width: unset;
+    height: calc(100dvh - 2em);
+    margin: 1em auto 1em 1em;
+
+    .navigation {
+      flex-direction: column;
+
+      svg:hover {
+        fill: red;
+      }
+    }
+
+    .avatar {
+      margin-top: auto;
+    }
+  }
+
+  .searchbox {
+    margin-top: 3em;
+
+    .search-input:focus {
+      border-bottom: 1px solid $secondary-lighter-color;
+    }
+  }
+}

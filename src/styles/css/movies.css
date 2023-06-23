@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+h1,
+h2,
+h3 {
+  color: inherit;
+}
+
+button,
+input {
+  background: 0;
+  border: 0;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.grid-flow {
+  display: grid;
+}
+
+.wrapper {
+  min-height: 100dvh;
+  justify-items: start;
+  row-gap: 2em;
+}
+
+body {
+  background-color: #10141e;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+}
+
+.nav {
+  background-color: #161d2f;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+.nav .navigation {
+  gap: 2em;
+}
+.nav li {
+  list-style: none;
+}
+.nav .avatar {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 2.5rem;
+}
+
+.searchbox {
+  align-items: center;
+  padding-inline: 1em;
+  gap: 1em;
+}
+.searchbox .search-icon {
+  height: 1.5rem;
+}
+.searchbox .search-input {
+  width: 18.75rem;
+  height: 100%;
+  outline: none;
+}
+.searchbox .search-input, .searchbox .search-input::placeholder {
+  font-size: 1rem;
+}
+
+.main {
+  width: 100%;
+  padding-inline: 1em;
+}
+.main .home-page,
+.main .movies-page,
+.main .tv-series-page,
+.main .bookmarks-page {
+  margin-bottom: 2em;
+}/*# sourceMappingURL=movies.css.map */

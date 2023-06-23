@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+h1,
+h2,
+h3 {
+  color: inherit;
+}
+
+button,
+input {
+  background: 0;
+  border: 0;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.grid-flow {
+  display: grid;
+}
+
+.wrapper {
+  min-height: 100dvh;
+  justify-items: start;
+  align-items: start;
+  align-content: start;
+  row-gap: 2em;
+}
+
+body {
+  background-color: #10141e;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+}
+
+.nav {
+  background-color: #161d2f;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+.nav .navigation {
+  gap: 2em;
+}
+.nav .navigation svg {
+  fill: #5a698f;
+  transition: fill 0.3s;
+}
+.nav .navigation svg.active {
+  fill: white;
+}
+.nav li {
+  list-style: none;
+}
+.nav .avatar {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 2.5rem;
+}
+
+.searchbox {
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+.searchbox .search-icon {
+  height: 1.5rem;
+}
+.searchbox .search-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0.5em 0;
+}
+.searchbox .search-input,
+.searchbox .search-input::placeholder {
+  font-size: 1rem;
+}
+
+.main {
+  width: 100%;
+  padding-inline: 1em;
+  padding-bottom: 2em;
+  gap: 1em;
+}
+
+@media (min-width: 720px) {
+  .nav {
+    width: calc(100% - 3em);
+    margin-inline: auto;
+    margin-top: 1em;
+    border-radius: 0.625rem;
+  }
+  .searchbox {
+    gap: 2em;
+  }
+  .searchbox .search-icon {
+    height: 2rem;
+  }
+  .searchbox .search-input,
+  .searchbox .search-input::placeholder {
+    font-size: 1.5rem;
+  }
+  .main {
+    padding-inline: 1.5em;
+  }
+}
+@media (min-width: 1280px) {
+  .wrapper {
+    grid-template-columns: min-content auto;
+    grid-template-rows: auto auto;
+  }
+  .nav {
+    grid-row: 1/3;
+    flex-direction: column;
+    justify-content: start;
+    gap: 5em;
+    width: unset;
+    height: calc(100dvh - 2em);
+    margin: 1em auto 1em 1em;
+  }
+  .nav .navigation {
+    flex-direction: column;
+  }
+  .nav .navigation svg:hover {
+    fill: red;
+  }
+  .nav .avatar {
+    margin-top: auto;
+  }
+  .searchbox {
+    margin-top: 3em;
+  }
+  .searchbox .search-input:focus {
+    border-bottom: 1px solid #5a698f;
+  }
+}
+.home-page {
+  gap: 2em;
+}
+.home-page .trending-section .trending-shows {
+  gap: 1em;
+  overflow-x: scroll;
+}
+.home-page .trending-section .trending-shows .movie-container {
+  min-width: 240px;
+  height: 140px;
+}
+.home-page .trending-section .trending-shows .movie-container .description-container {
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+}
+
+.bookmarks-page {
+  gap: 2em;
+}
+
+h1.title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-bottom: 1em;
+}
+
+h2.title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.recommended-shows,
+.movies,
+.tv-series,
+.bookmarks,
+.search-results {
+  width: 100%;
+  gap: 1em;
+  grid-template-columns: auto auto;
+  justify-content: start;
+}
+.recommended-shows .description-container,
+.movies .description-container,
+.tv-series .description-container,
+.bookmarks .description-container,
+.search-results .description-container {
+  margin-top: 0.5em;
+}
+
+.movie-container {
+  position: relative;
+  border-radius: 0.5rem;
+  background-size: cover;
+  min-width: 164px;
+  height: 110px;
+  max-width: 350px;
+}
+.movie-container .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: -1;
+  display: none;
+}
+.movie-container .play-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 105px;
+  padding: 0.4em;
+  background-color: rgba(255, 255, 255, 0.25);
+  align-items: center;
+  gap: 0.6em;
+  border-radius: 25px;
+  display: none;
+}
+.movie-container .play-container p {
+  font-size: 1.125rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+}
+.movie-container .bookmark-icon-container {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 0.5em;
+  right: 0.5em;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.movie-container .bookmark-icon-container svg {
+  fill: none;
+  stroke: #fff;
+  transition: stroke 0.3s;
+}
+.movie-container .bookmark-icon-container svg.active {
+  fill: white;
+}
+
+.description-container .container {
+  gap: 0.5em;
+  align-items: center;
+  opacity: 75%;
+  font-size: 0.75rem;
+}
+.description-container .container div {
+  align-items: center;
+  gap: 0.5em;
+}
+.description-container .container .dot {
+  width: 3px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 50%;
+}
+
+@media (min-width: 720px) {
+  .home-page .trending-section .trending-shows {
+    gap: 2em;
+  }
+  .home-page .trending-section .trending-shows .movie-container {
+    min-width: 470px;
+    height: 230px;
+  }
+  .home-page .trending-section .trending-shows .movie-container .description-container {
+    bottom: 1em;
+    left: 1em;
+  }
+  .bookmarks-page {
+    gap: 3em;
+  }
+  h1.title {
+    font-size: 2rem;
+  }
+  h2.title {
+    font-size: 1.5rem;
+  }
+  .recommended-shows,
+  .movies,
+  .tv-series,
+  .bookmarks,
+  .search-results {
+    grid-template-columns: auto auto auto;
+    gap: 2em;
+  }
+  .movie-container {
+    min-width: 220px;
+    height: 140px;
+  }
+  .movie-container .bookmark-icon-container {
+    top: 1em;
+    right: 1em;
+  }
+  .description-container .container {
+    font-size: 0.9375rem;
+  }
+}
+@media (min-width: 1280px) {
+  .home-page .trending-section ::-webkit-scrollbar {
+    height: 5px;
+  }
+  .home-page .trending-section ::-webkit-scrollbar-track {
+    background-color: #161d2f;
+    border-radius: 5px;
+  }
+  .home-page .trending-section ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+  }
+  .recommended-shows,
+  .movies,
+  .tv-series,
+  .bookmarks,
+  .search-results {
+    grid-template-columns: auto auto auto auto;
+    gap: 2em;
+  }
+  .movie-container {
+    min-width: 280px;
+    height: 174px;
+    cursor: pointer;
+  }
+  .movie-container:hover:has(.bookmark-icon-container:not(:hover)) .overlay {
+    display: block;
+  }
+  .movie-container:hover:has(.bookmark-icon-container:not(:hover)) .play-container {
+    display: flex;
+  }
+  .bookmark-icon-container:hover {
+    background-color: white;
+  }
+  .bookmark-icon-container:hover svg {
+    stroke: black;
+  }
+}/*# sourceMappingURL=index.css.map */

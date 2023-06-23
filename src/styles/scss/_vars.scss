@@ -1,0 +1,24 @@
+// Colors
+$primary-color: #fc4747;
+$secondary-dark-color: #10141e;
+$secondary-light-color: #161d2f;
+$secondary-lighter-color: #5a698f;
+$text-color: #fff;
+
+// Font
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+
+@mixin font-family-light {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+}
+
+@mixin font-family-medium {
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+}
+
+// Utility function to convert from px to rem
+@function pxToRem($value) {
+  @return calc($value / 16) + rem;
+}

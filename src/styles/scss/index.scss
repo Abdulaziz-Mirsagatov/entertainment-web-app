@@ -1,0 +1,247 @@
+@use "_base";
+@use "_vars" as *;
+
+.home-page {
+  gap: 2em;
+
+  .trending-section {
+    .trending-shows {
+      gap: 1em;
+      overflow-x: scroll;
+
+      .movie-container {
+        min-width: 240px;
+        height: 140px;
+
+        .description-container {
+          position: absolute;
+          bottom: 0.5em;
+          left: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+.bookmarks-page {
+  gap: 2em;
+}
+
+h1.title {
+  @include font-family-light;
+  font-size: pxToRem(20);
+  margin-bottom: 1em;
+}
+
+h2.title {
+  @include font-family-medium;
+  font-size: pxToRem(15);
+}
+
+.recommended-shows,
+.movies,
+.tv-series,
+.bookmarks,
+.search-results {
+  width: 100%;
+  gap: 1em;
+  grid-template-columns: auto auto;
+  justify-content: start;
+
+  .description-container {
+    margin-top: 0.5em;
+  }
+}
+
+.movie-container {
+  position: relative;
+  border-radius: pxToRem(8);
+  background-size: cover;
+  min-width: 164px;
+  height: 110px;
+  max-width: 350px;
+
+  .overlay {
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: -1;
+    display: none;
+  }
+
+  .play-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105px;
+    padding: 0.4em;
+    background-color: rgba($color: #fff, $alpha: 0.25);
+    align-items: center;
+    gap: 0.6em;
+    border-radius: 25px;
+    display: none;
+
+    p {
+      font-size: pxToRem(18);
+      @include font-family-medium;
+    }
+  }
+
+  .bookmark-icon-container {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0.5em;
+    right: 0.5em;
+    border-radius: 50%;
+    width: pxToRem(32);
+    height: pxToRem(32);
+    background-color: rgba($color: black, $alpha: 0.5);
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    svg {
+      fill: none;
+      stroke: #fff;
+      transition: stroke 0.3s;
+    }
+
+    svg.active{
+      fill: white;
+    }
+  }
+}
+
+.description-container {
+  .container {
+    gap: 0.5em;
+    align-items: center;
+    opacity: 75%;
+    font-size: pxToRem(12);
+
+    div {
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .dot {
+      width: 3px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 50%;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .home-page {
+    .trending-section {
+      .trending-shows {
+        gap: 2em;
+
+        .movie-container {
+          min-width: 470px;
+          height: 230px;
+
+          .description-container {
+            bottom: 1em;
+            left: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .bookmarks-page {
+    gap: 3em;
+  }
+
+  h1.title {
+    font-size: pxToRem(32);
+  }
+
+  h2.title {
+    font-size: pxToRem(24);
+  }
+
+  .recommended-shows,
+  .movies,
+  .tv-series,
+  .bookmarks,
+  .search-results {
+    grid-template-columns: auto auto auto;
+    gap: 2em;
+  }
+
+  .movie-container {
+    min-width: 220px;
+    height: 140px;
+
+    .bookmark-icon-container {
+      top: 1em;
+      right: 1em;
+    }
+  }
+
+  .description-container {
+    .container {
+      font-size: pxToRem(15);
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-page {
+    .trending-section {
+      ::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: $secondary-light-color;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba($color: $text-color, $alpha: 0.25);
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .recommended-shows,
+  .movies,
+  .tv-series,
+  .bookmarks,
+  .search-results {
+    grid-template-columns: auto auto auto auto;
+    gap: 2em;
+  }
+
+  .movie-container {
+    min-width: 280px;
+    height: 174px;
+    cursor: pointer;
+  }
+
+  .movie-container:hover:has(.bookmark-icon-container:not(:hover)) {
+    .overlay {
+      display: block;
+    }
+
+    .play-container {
+      display: flex;
+    }
+  }
+
+  .bookmark-icon-container:hover {
+    background-color: white;
+
+    svg {
+      stroke: black;
+    }
+  }
+}

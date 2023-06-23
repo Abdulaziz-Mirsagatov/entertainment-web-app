@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+h1,
+h2,
+h3 {
+  color: inherit;
+}
+
+button,
+input {
+  background: 0;
+  border: 0;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.grid-flow {
+  display: grid;
+}
