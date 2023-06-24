@@ -1,9 +1,9 @@
 import React from "react";
-import movies from "../data.json";
+import data from "../data.json";
 import MovieCard from "./MovieCard";
 
 const Recommended = () => {
-  movies = movies.filter((movie) => !movie.isTrending);
+  const movies = data.filter((movie) => !movie.isTrending);
 
   return (
     <section className="recommended-section">
