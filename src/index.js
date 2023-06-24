@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import App from "./App";
-import { StaticRouter } from "react-router-dom/server";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -11,9 +11,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <StaticRouter>
+      <BrowserRouter>
         <App />
-      </StaticRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
