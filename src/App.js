@@ -6,15 +6,16 @@ import Movies from "./components/pages/Movies";
 import TVSeries from "./components/pages/TVSeries";
 import Bookmarks from "./components/pages/Bookmarks";
 import "./styles/css/index.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function App() {
   const searchString = useSelector((state) => state.searchString.value);
+  let location = useLocation();
 
   return (
     <div className="wrapper grid-flow">
-      <Navbar />
+      <Navbar location={location} />
       <main className="main grid-flow">
         <Searchbox searchString={searchString} />
         <Routes>
